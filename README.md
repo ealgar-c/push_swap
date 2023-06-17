@@ -26,7 +26,11 @@ Aqui va una descripción del proyecto más extensa
 │   └── push_swap.h
 ├── objs/
 └── src/
-    └── main.c
+    ├── main.c
+    ├── push.c
+    ├── rotate.c
+    ├── rrotate.c
+    └── swap.c
 
 ```
 
