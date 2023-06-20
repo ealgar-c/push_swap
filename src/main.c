@@ -6,12 +6,22 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 16:25:23 by ealgar-c          #+#    #+#             */
-/*   Updated: 2023/06/19 18:24:39 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2023/06/20 11:10:08 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
+/**
+ * @brief function that checks if the number passed as an argument
+ * is repeated.
+ * 
+ * @param args the array of arguments
+ * @param a the position of the argument to check
+ * @param nbr the number to check
+ * @return true if the number is not repeated
+ * @return false if the number is repeated
+ */
 static bool	ft_isrepeated(char **args, int a, int nbr)
 {
 	int	i;
@@ -26,6 +36,14 @@ static bool	ft_isrepeated(char **args, int a, int nbr)
 	return (true);
 }
 
+/**
+ * @brief function that checks if the argument passed to the program
+ * is a number.
+ * 
+ * @param arg the argument to check
+ * @return true if the argument is a number
+ * @return false if the argument is not a number
+ */
 static bool	ft_isnumber(char *arg)
 {
 	int	i;
@@ -42,12 +60,22 @@ static bool	ft_isnumber(char *arg)
 	return (true);
 }
 
+/**
+ * @brief function that prints the error message and exits the program.
+ * 
+ */
 void	error(void)
 {
 	ft_printf("Error\n");
 	exit(1);
 }
 
+/**
+ * @brief function that checks the arguments passed to the program
+ * and if they are not valid, it calls the error function.
+ * 
+ * @param args 
+ */
 static void	check_arguments(char **args)
 {
 	int	i;
@@ -63,6 +91,15 @@ static void	check_arguments(char **args)
 	}
 }
 
+/**
+ * @brief The main function of the program that, after checking
+ * if the args are okay, initializes the stacks and
+ * calls the sorting functions.
+ * 
+ * @param ac count of arguments
+ * @param av array of arguments
+ * @return int return 0 in case of success
+ */
 int	main(int ac, char **av)
 {
 	t_stack	*s_a;
@@ -80,8 +117,8 @@ int	main(int ac, char **av)
 	s_b = initialize_stack_b();
 	if (s_a->size <= 6)
 		smallsort(s_a, s_b);
-	else
-		supersort(s_a, s_b);
+	/* else
+		supersort(s_a, s_b); */
 	print_stack(s_a);
 	return (0);
 }

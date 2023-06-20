@@ -6,12 +6,18 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 12:51:39 by ealgar-c          #+#    #+#             */
-/*   Updated: 2023/06/19 16:18:43 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2023/06/20 09:44:17 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
+/**
+ * @brief Function that returns the length of an array of strings
+ * 
+ * @param args array of strings
+ * @return int (length of the array)
+ */
 static int	arr_length(char **args)
 {
 	int	i;
@@ -23,13 +29,11 @@ static int	arr_length(char **args)
 }
 
 /**
- * @brief This is an updated version of the function @get_to_stack
- * 		In this version, we dont allocate mamory only for the size of
- * 		the arguments, we allocate a lot of memory so we dont have problems
+ * @brief Function that create a stack and initialize it with the arguments
+ * passed to the program.
  * 
- * @param s_a 
- * @param args 
- * @param argc 
+ * @param args array of strings
+ * @return t_stack* (pointer to the stack a)
  */
 t_stack	*initialize_stack_a(char **args)
 {
@@ -49,6 +53,11 @@ t_stack	*initialize_stack_a(char **args)
 	return (s_a);
 }
 
+/**
+ * @brief Function that create a stack b
+ * 
+ * @return t_stack* (pointer to the stack b)
+ */
 t_stack	*initialize_stack_b(void)
 {
 	t_stack	*s_b;
@@ -59,6 +68,12 @@ t_stack	*initialize_stack_b(void)
 	return (s_b);
 }
 
+/**
+ * @brief Function that prints the stack passed as an argument
+ * (Not used in the program)
+ * 
+ * @param stack to print
+ */
 void	print_stack(t_stack *stack)
 {
 	int	i;
