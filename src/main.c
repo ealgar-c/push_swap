@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 16:25:23 by ealgar-c          #+#    #+#             */
-/*   Updated: 2023/06/20 11:10:08 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2023/06/22 12:37:06 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ int	main(int ac, char **av)
 {
 	t_stack	*s_a;
 	t_stack	*s_b;
-	char	**args;
+	char	**args = NULL;
 
 	if (ac <= 1)
 		error();
@@ -119,6 +119,6 @@ int	main(int ac, char **av)
 		smallsort(s_a, s_b);
 	/* else
 		supersort(s_a, s_b); */
-	print_stack(s_a);
+	// print_stack(s_a);
 	return (0);
 }

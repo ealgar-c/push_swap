@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 12:38:37 by ealgar-c          #+#    #+#             */
-/*   Updated: 2023/06/20 11:18:13 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2023/06/22 13:54:22 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,30 +20,24 @@
  */
 void	sort3(t_stack *s_a)
 {
-	if (s_a->numbers[2] > s_a->numbers[1] && s_a->numbers[1] < s_a->numbers[0]
-		&& s_a->numbers[0] > s_a->numbers[2])
-		sa(s_a);
-	else if (s_a->numbers[2] > s_a->numbers[1]
-		&& s_a->numbers[1] > s_a->numbers[0]
-		&& s_a->numbers[0] < s_a->numbers[2])
+	int	*nums;
+
+	nums = s_a->numbers;
+	if (nums[2] > nums[1] && nums[1] > nums[0] && nums[0] < nums[2])
 	{
 		sa(s_a);
 		rra(s_a);
 	}
-	else if (s_a->numbers[2] > s_a->numbers[1]
-		&& s_a->numbers[1] < s_a->numbers[0]
-		&& s_a->numbers[0] < s_a->numbers[2])
+	else if (nums[2] > nums[1] && nums[1] < nums[0] && nums[0] < nums[2])
 		ra(s_a);
-	else if (s_a->numbers[2] < s_a->numbers[1]
-		&& s_a->numbers[1] > s_a->numbers[0]
-		&& s_a->numbers[0] > s_a->numbers[2])
+	else if (nums[0] > nums[1] && nums[1] < nums[2] && nums[0] > nums[2])
+		sa(s_a);
+	else if (nums[0] > nums[2] && nums[2] < nums[1] && nums[0] < nums[1])
 	{
 		sa(s_a);
 		ra(s_a);
 	}
-	else if (s_a->numbers[2] > s_a->numbers[1]
-		&& s_a->numbers[1] > s_a->numbers[0]
-		&& s_a->numbers[0] < s_a->numbers[2])
+	else if (nums[0] < nums[2] && nums[2] < nums[1] && nums[2] > nums[0])
 		rra(s_a);
 }
 
