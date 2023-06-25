@@ -19,7 +19,7 @@ algoritmos de ordenación.
 
 <h2 align="center">🌲 PROYECT TREE 🌲</h2>
 
-```
+```Bash
 .
 ├── Makefile
 ├── README.md
@@ -71,7 +71,7 @@ Después de comprobar que los números son válidos, es momento de inicializar l
 
 Vamos a ver primero cómo esta hecha la estructura del stack y a entender un poco que es cada parte:
 
-```
+```C
 typedef struct s_stack
 {
 	int	numbers[1024];
@@ -125,7 +125,7 @@ Despues de haber ordenado el stack A, solo queda cerrar el programa liberando la
   <h3 align="center"> 📊 pyviz </h3>
 
   Además de el proyecto, se incluye tambien un programa en python llamado pyviz que funciona como un visualizer. El creador de este programa es un compañero de 42 llamado <a href="https://github.com/o-reo/push_swap">eruaud</a>, el uso del visualizer es muy simple. Usamos el siguiente script:
-  ```
+  ```Bash
   python3 pyviz.py `ruby -e "puts (1..20).to_a.shuffle.join(' ')"`
   ```
   y se abrira una ventana donde, de forma visual, podemos ver como se aplican los movimientos que muestra por pantalla nuestro programa.
