@@ -6,14 +6,16 @@
 	<p>Swap_push no suena tan natural</p>
 	<img src="https://wakatime.com/badge/user/a0e860d2-9914-4fed-8143-b9fd5cf5e6c1/project/ff5bed0a-6c31-4609-95c8-643947ff70d3.svg?style=flat"/>
 	<br />
-	<img src="https://img.shields.io/badge/norme-KO-red?style=flat"/>
-	<img src="https://img.shields.io/badge/leaks-Not%20Checked-red?style=flat"/>
+	<img src="https://img.shields.io/badge/norme-OK-success?style=flat"/>
+	<img src="https://img.shields.io/badge/leaks-Clear!-success?style=flat"/>
 	<img src="https://img.shields.io/badge/-unknown%2F100-inactive?style=flat&logo=42&logoColor=000" />
 </div>
 
 <h2 align="center">📜 PROYECT DESCRIPTION 📜</h2>
 
-Aqui va una descripción del proyecto más extensa
+El objetivo de este proyecto es crear un algoritmo que ordene números aleatorios en el menor número de movimientos posibles y utilizando solo
+una lista concreta de movimientos (sa, sb, ss, ra, rb, rr, rra, rrb, rrr, pa, pb). El objetivo de este proyecto es aprender a manejar 
+algoritmos de ordenación.
 
 <h2 align="center">🌲 PROYECT TREE 🌲</h2>
 
@@ -21,15 +23,28 @@ Aqui va una descripción del proyecto más extensa
 .
 ├── Makefile
 ├── README.md
-├── libft/
 ├── include/
-│   └── push_swap.h
+│   ├── push_swap.h
+│   └── push_swap_bonus.h
 ├── objs/
+├── libft/
+├── pyviz.py
 └── src/
+    ├── argumentscheck.c
+    ├── checker/
+    │   ├── checker.c
+    │   ├── checkerpush.c
+    │   ├── checkerrotate.c
+    │   ├── checkerrrotate.c
+    │   └── checkerswap.c
+    ├── chunksort.c
     ├── main.c
     ├── push.c
     ├── rotate.c
     ├── rrotate.c
+    ├── smallsort.c
+    ├── stack_management.c
+    ├── supersort.c
     └── swap.c
 
 ```
