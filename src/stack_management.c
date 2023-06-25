@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 12:51:39 by ealgar-c          #+#    #+#             */
-/*   Updated: 2023/06/23 13:26:03 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2023/06/25 18:12:49 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,49 +68,29 @@ t_stack	*initialize_stack_b(void)
 	return (s_b);
 }
 
-/**
- * @brief Function that prints the stack passed as an argument
- * (Not used in the program)
- * 
- * @param stack to print
- */
-void	print_stack(t_stack *stack)
+/* 
+void	ft_leakss(void)
+{
+	system("leaks -q push_swap");
+	atexit(ft_leakss);
+} */
+
+void	exit_without_errors(t_stack *s_a, t_stack *s_b)
 {
 	int	i;
 
-	i = stack->top;
-	while (i >= 0)
-	{
-		ft_printf("numbers[%i]: %i\n", i, stack->numbers[i]);
-		i--;
-	}
+	i = 0;
+	free(s_a);
+	free(s_b);
+	exit(0);
 }
 
-bool	stack_sorted(t_stack *stack, char *order)
+/**
+ * @brief function that prints the error message and exits the program.
+ * 
+ */
+void	exit_with_errors(void)
 {
-	int	i;
-
-	if (ft_strncmp(order, "des", 3))
-	{
-		i = stack->top - 1;
-		while (i > 0)
-		{
-			if (stack->numbers[i] > stack->numbers[i + 1])
-				return (false);
-			i--;
-		}
-		return (true);
-	}
-	else if (ft_strncmp(order, "asc", 3))
-	{
-		i = 1;
-		while (i++ < stack->top)
-		{
-			if (stack->numbers[i] < stack->numbers[i - 1])
-				return (false);
-		}
-		return (true);
-	}
-	else
-		return (false);
+	ft_printf("Error\n");
+	exit(1);
 }
