@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 12:51:39 by ealgar-c          #+#    #+#             */
-/*   Updated: 2023/06/20 09:44:17 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2023/06/23 13:26:03 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,36 @@ void	print_stack(t_stack *stack)
 	i = stack->top;
 	while (i >= 0)
 	{
-		ft_printf("numero %i: %i\n", i, stack->numbers[i]);
+		ft_printf("numbers[%i]: %i\n", i, stack->numbers[i]);
 		i--;
 	}
+}
+
+bool	stack_sorted(t_stack *stack, char *order)
+{
+	int	i;
+
+	if (ft_strncmp(order, "des", 3))
+	{
+		i = stack->top - 1;
+		while (i > 0)
+		{
+			if (stack->numbers[i] > stack->numbers[i + 1])
+				return (false);
+			i--;
+		}
+		return (true);
+	}
+	else if (ft_strncmp(order, "asc", 3))
+	{
+		i = 1;
+		while (i++ < stack->top)
+		{
+			if (stack->numbers[i] < stack->numbers[i - 1])
+				return (false);
+		}
+		return (true);
+	}
+	else
+		return (false);
 }

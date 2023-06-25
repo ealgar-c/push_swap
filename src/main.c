@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 16:25:23 by ealgar-c          #+#    #+#             */
-/*   Updated: 2023/06/22 12:37:06 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2023/06/23 17:30:19 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ static void	check_arguments(char **args)
 			error();
 		else if (!ft_isrepeated(args, i, ft_atoi(args[i])))
 			error();
+		else if (ft_atoi(args[i]) > __INT_MAX__)
+			error();
 		i++;
 	}
 }
@@ -104,10 +106,13 @@ int	main(int ac, char **av)
 {
 	t_stack	*s_a;
 	t_stack	*s_b;
-	char	**args = NULL;
+	char	**args;
 
 	if (ac <= 1)
+	{
+		args = NULL;
 		error();
+	}
 	else if (ac == 2)
 		args = ft_split(av[1], ' ');
 	else
@@ -117,8 +122,7 @@ int	main(int ac, char **av)
 	s_b = initialize_stack_b();
 	if (s_a->size <= 6)
 		smallsort(s_a, s_b);
-	/* else
-		supersort(s_a, s_b); */
-	// print_stack(s_a);
+	else
+		supersort(s_a, s_b);
 	return (0);
 }

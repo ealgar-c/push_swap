@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 19:39:49 by ealgar-c          #+#    #+#             */
-/*   Updated: 2023/06/22 13:15:32 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2023/06/23 13:25:38 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ static void	r_rotate(t_stack *stack)
 		i++;
 	}
 	stack->numbers[stack->top] = save;
-
 }
 
 void	rra(t_stack *s_a)
