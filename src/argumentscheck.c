@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 17:52:17 by ealgar-c          #+#    #+#             */
-/*   Updated: 2023/06/25 17:53:33 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2023/06/30 13:33:48 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static bool	ft_isnumber(char *arg)
  * 
  * @param args 
  */
-void	check_arguments(char **args)
+void	check_arguments(int ac, char **args)
 {
 	int	i;
 
@@ -74,11 +74,11 @@ void	check_arguments(char **args)
 	while (args[i])
 	{
 		if (!ft_isnumber(args[i]))
-			exit_with_errors();
+			exit_with_errors(ac, args);
 		else if (!ft_isrepeated(args, i, ft_atoi(args[i])))
-			exit_with_errors();
+			exit_with_errors(ac, args);
 		else if (ft_atoi(args[i]) > __INT_MAX__)
-			exit_with_errors();
+			exit_with_errors(ac, args);
 		i++;
 	}
 }

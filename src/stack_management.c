@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 12:51:39 by ealgar-c          #+#    #+#             */
-/*   Updated: 2023/06/25 18:12:49 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2023/06/30 13:46:31 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,18 +68,26 @@ t_stack	*initialize_stack_b(void)
 	return (s_b);
 }
 
-/* 
-void	ft_leakss(void)
+/* void	ft_leakss(void)
 {
 	system("leaks -q push_swap");
 	atexit(ft_leakss);
 } */
 
-void	exit_without_errors(t_stack *s_a, t_stack *s_b)
+void	exit_without_errors(int ac, char **args, t_stack *s_a, t_stack *s_b)
 {
-	int	i;
+	char	**ptr;
 
-	i = 0;
+	if (ac == 2)
+	{
+		ptr = args;
+		while (*ptr)
+		{
+			free(*ptr);
+			ptr++;
+		}
+		free(args);
+	}
 	free(s_a);
 	free(s_b);
 	exit(0);
@@ -89,8 +97,20 @@ void	exit_without_errors(t_stack *s_a, t_stack *s_b)
  * @brief function that prints the error message and exits the program.
  * 
  */
-void	exit_with_errors(void)
+void	exit_with_errors(int ac, char **args)
 {
+	char	**ptr;
+
+	if (ac == 2)
+	{
+		ptr = args;
+		while (*ptr)
+		{
+			free(*ptr);
+			ptr++;
+		}
+		free(args);
+	}
 	ft_printf("Error\n");
 	exit(1);
 }

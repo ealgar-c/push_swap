@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 18:24:51 by ealgar-c          #+#    #+#             */
-/*   Updated: 2023/06/25 20:44:46 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2023/06/28 12:39:39 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,45 +28,37 @@ static int	min_position(t_stack *s_a)
 	return (aux);
 }
 
-static int	max_position(t_stack *s_a)
+static int	max_position(t_stack *stack)
 {
 	int	i;
 	int	aux;
 
-	i = s_a->top - 1;
-	aux = s_a->top;
+	i = stack->top - 1;
+	aux = stack->top;
 	while (i >= 0)
 	{
-		if (s_a->numbers[i] > s_a->numbers[aux])
+		if (stack->numbers[i] > stack->numbers[aux])
 			aux = i;
 		i--;
 	}
 	return (aux);
 }
 
-static int	get_max_nbr_pos(t_stack *s_b)
-{
-	int	i;
-	int	aux;
-
-	i = s_b->top - 1;
-	aux = s_b->top;
-	while (i >= 0)
-	{
-		if (s_b->numbers[i] > s_b->numbers[aux])
-			aux = i;
-		i--;
-	}
-	return (aux);
-}
-
+/**
+ * @brief once the stack a is sorted in chunks, this function
+ * takes the numbers from the stack b and puts them in the stack a
+ * in the most efficient way.
+ * 
+ * @param s_a 
+ * @param s_b 
+ */
 static void	nbrstoa(t_stack *s_a, t_stack *s_b)
 {
 	int	top_back;
 
 	while (s_b->top >= 0)
 	{
-		top_back = get_max_nbr_pos(s_b);
+		top_back = max_position(s_b);
 		if (top_back > s_b->top / 2)
 		{
 			while (top_back < s_b->top)
@@ -87,6 +79,16 @@ static void	nbrstoa(t_stack *s_a, t_stack *s_b)
 	}
 }
 
+/**
+ * @brief Funciton that choose the best numebr of chunks depending on
+ * the amount of numbers in the stack a and sort each chunk.
+ * 
+ * For it, it takes the posotion of min and the max number of the stack a and 
+ * send each chunk to the function chunksrt.
+ * 
+ * @param s_a 
+ * @param s_b 
+ */
 void	supersort(t_stack *s_a, t_stack *s_b)
 {
 	int	chunk_nbr;

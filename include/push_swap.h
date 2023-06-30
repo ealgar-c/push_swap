@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 16:26:51 by ealgar-c          #+#    #+#             */
-/*   Updated: 2023/06/25 17:49:48 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2023/06/30 13:38:11 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ typedef struct s_stack
 }	t_stack;
 
 // main.c
-void	exit_with_errors(void);
 
 // swap.c
 void	sa(t_stack *s_a);
@@ -53,9 +52,11 @@ void	smallsort(t_stack *s_a, t_stack *s_b);
 // stack_management.c
 t_stack	*initialize_stack_a(char **args);
 t_stack	*initialize_stack_b(void);
-void	print_stack(t_stack *stack);
-void	exit_without_errors(t_stack *s_a, t_stack *s_b);
-void	check_arguments(char **args);
+void	exit_with_errors(int ac, char **args);
+void	exit_without_errors(int ac, char **args, t_stack *s_a, t_stack *s_b);
+
+// argumentscheck.c
+void	check_arguments(int ac, char **args);
 
 // supersort.c
 void	supersort(t_stack *s_a, t_stack *s_b);

@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 12:38:37 by ealgar-c          #+#    #+#             */
-/*   Updated: 2023/06/22 13:54:22 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2023/06/28 12:32:22 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	sort3(t_stack *s_a)
 		sa(s_a);
 		ra(s_a);
 	}
-	else if (nums[0] < nums[2] && nums[2] < nums[1] && nums[2] > nums[0])
+	else if (nums[0] < nums[2] && nums[2] < nums[1] && nums[1] > nums[0])
 		rra(s_a);
 }
 
