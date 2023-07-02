@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 17:52:17 by ealgar-c          #+#    #+#             */
-/*   Updated: 2023/06/30 13:33:48 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2023/06/30 15:49:26 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,33 @@ static bool	ft_isnumber(char *arg)
 	return (true);
 }
 
+static bool	ft_checklen(char *str)
+{
+	long int	num;
+	int			i;
+	int			sn;
+
+	i = 0;
+	sn = 1;
+	num = 0;
+	while (str[i] == ' ' || str[i] == '\f' || str[i] == '\n'
+		|| str[i] == '\r' || str[i] == '\t' || str[i] == '\v')
+		i++;
+	if (str[i] == '-')
+		sn *= -1;
+	if (str[i] == '+' || str[i] == '-')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		num = (str[i] - 48) + (num * 10);
+		i++;
+	}
+	num *= sn;
+	if (num > 2147483647 || num < -2147483648)
+		return (false);
+	return (true);
+}
+
 /**
  * @brief function that checks the arguments passed to the program
  * and if they are not valid, it calls the error function.
@@ -75,9 +102,9 @@ void	check_arguments(int ac, char **args)
 	{
 		if (!ft_isnumber(args[i]))
 			exit_with_errors(ac, args);
-		else if (!ft_isrepeated(args, i, ft_atoi(args[i])))
+		else if (!ft_checklen(args[i]))
 			exit_with_errors(ac, args);
-		else if (ft_atoi(args[i]) > __INT_MAX__)
+		else if (!ft_isrepeated(args, i, ft_atoi(args[i])))
 			exit_with_errors(ac, args);
 		i++;
 	}

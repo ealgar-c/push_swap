@@ -6,7 +6,7 @@
 /*   By: ealgar-c <ealgar-c@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 12:38:37 by ealgar-c          #+#    #+#             */
-/*   Updated: 2023/06/28 12:32:22 by ealgar-c         ###   ########.fr       */
+/*   Updated: 2023/06/30 15:23:18 by ealgar-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,9 @@ void	sort5(t_stack *s_a, t_stack *s_b)
  */
 void	smallsort(t_stack *s_a, t_stack *s_b)
 {
-	if (s_a->size == 2)
+	if (s_a->size == 1)
+		return ;
+	else if (s_a->size == 2)
 	{
 		if (s_a->numbers[s_a->top] > s_a->numbers[s_a->top - 1])
 			sa(s_a);
