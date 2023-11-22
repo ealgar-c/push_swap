@@ -8,7 +8,7 @@
 	<br />
 	<img src="https://img.shields.io/badge/norme-OK-success?style=flat"/>
 	<img src="https://img.shields.io/badge/leaks-Clear!-success?style=flat"/>
-	<img src="https://img.shields.io/badge/-unknown%2F100-inactive?style=flat&logo=42&logoColor=000" />
+	<img src="https://img.shields.io/badge/-107%2F100-inactive?style=flat&logo=42&logoColor=000" />
 </div>
 
 <h2 align="center">📜 PROYECT DESCRIPTION 📜</h2>
